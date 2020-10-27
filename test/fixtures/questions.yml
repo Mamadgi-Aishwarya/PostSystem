@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
+  title: Ruby On Rails
+  description: MyText is written in ruby
 
 two:
-  title: MyString
-  description: MyText
+  title: Express
+  description: MyText is written in javascript
