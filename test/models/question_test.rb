@@ -21,9 +21,9 @@ class QuestionTest < ActiveSupport::TestCase
     assert @question.errors[:description].any?
   end
 
- # test "description minimum length" do
- # @question.description="hello"
- # assert_equal ["is too short (minimum is 20 characters)"],@question.errors[:description]
- # end
+  test "description minimum length" do
+  @question.description="hello"
+  assert_equal ["is too short (minimum is 20 characters)"],@question.errors[:description]
+  end
 
 end
