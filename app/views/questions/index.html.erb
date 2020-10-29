@@ -13,7 +13,7 @@
 
   <tbody>
     <% @questions.each do |question| %>
-      <tr>
+    <tr  class="post">
         <tr><td><%= question.title %></td></tr>
         <tr><td><%= question.user.name %></td></tr>
         <tr><td><%= question.description %></td></tr>

@@ -9,6 +9,10 @@
   <strong>Description:</strong>
   <%= @question.description %>
 </p>
-
+<%= form_with(scope: :comment,url:comments_path,class:"addNewCommentForm",method: :post,local:true) do |f| %>
+  <%= f.text_field :message %>
+  <%= f.hidden_field :question_id_for_comment, value: @question.id %>
+  <%= f.submit "Add" %>
+<% end %>    
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
