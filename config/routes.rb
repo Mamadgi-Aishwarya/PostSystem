@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   root "questions#index" 
   resources :users ,except: [:new]
   resources :questions 
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#delete'
+
 end
