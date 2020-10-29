@@ -14,12 +14,29 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.title %></td>
-        <td><%= question.description %></td>
-        <td><%= question.user.name %>
+        <tr><td><%= question.title %></td></tr>
+        <tr><td><%= question.user.name %></td></tr>
+        <tr><td><%= question.description %></td></tr>
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <th>Comments </th>
+      <tr>
+      <% question.comments.each do |comment|%>
+        <tr>
+        <td><%= comment.message %></td>
+        <td><%= comment.user.name %></td>
+        </tr>
+      <% end %>
+      <tr>
+      <td>
+      <%= form_with(scope: :comment,url:comments_path,class:"addNewCommentForm",method: :post,local:true) do |f| %>
+        <%= f.text_field :message %>
+        <%= f.submit "Add" %>
+      <% end %>    
+      </td>
+      </tr>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +45,3 @@
 <br>
 
 <%= link_to 'New Question', new_question_path %>
-
