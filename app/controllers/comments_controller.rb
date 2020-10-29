@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json
@@ -25,7 +26,8 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-
+    @comment.user = current_user
+    @comment.question = Question.first
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
@@ -71,4 +73,10 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:message)
     end
+    def require_same_user
+      if current_user != @comment.user
+        flash[:alert] = "You can only edit or delete your own comment"
+        redirect_to root_path
+      end
+    end 
 end

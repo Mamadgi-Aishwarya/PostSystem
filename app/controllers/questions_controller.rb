@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  #before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /questions
   # GET /questions.json
@@ -76,7 +76,7 @@ class QuestionsController < ApplicationController
     def require_same_user
       if current_user != @question.user
         flash[:alert] = "You can only edit or delete your own question"
-        redirect_to @questions
+        redirect_to login_path
       end
     end 
 end
