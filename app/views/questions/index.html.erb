@@ -1,23 +1,7 @@
 <%= render partial: 'shared/flashMessages' %>
 <h1>Questions</h1>
 <div class="container jumbotron">
-    <% @questions.each do |question| %>
-      <div class="post">
-       <h3>Question</h3>
-       <strong>Title: </strong><%= question.title %><br>
-       <strong>By </strong><%= question.user.name %><br>
-       <%= question.description %><br><br>
-       <%= link_to 'Click To Read Full Question ', question ,class:"show" %>
-      </div><br><br>
-      <p>Comments</p>
-      <% question.comments.each do |comment|%>
-        <div class="row comments">
-              <div class="col">
-              <p><%= comment.message %>&nbsp;&nbsp;By: <%= comment.user.name %></p>
-              </div>
-        </div>
-      <% end %>
-      <% end %>
+   <%= render partial: 'shared/questions' ,locals: { questions: @user.questions } %>
 </div>
 
 <br>

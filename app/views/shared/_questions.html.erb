@@ -1,0 +1,10 @@
+<% questions.each do |question| %>
+    <div class="post">
+     <h3>Question</h3>
+     <strong>Title: </strong><%= question.title %><br>
+     <strong>By </strong><%= question.user.name %><br>
+     <%= question.description %><br><br>
+     <%= link_to 'Click To Read Full Question ', question ,class:"show" %>
+     <%= render partial: 'shared/comments' ,locals: {comments: question.comments} %>
+    </div>
+  <% end %>

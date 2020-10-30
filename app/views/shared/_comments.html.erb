@@ -1,0 +1,13 @@
+<% comments.each do |comment|%>
+    <div class="row">
+          <div class="col">
+          <p><%= comment.message %>&nbsp;&nbsp;By: <%= comment.user.name %></p>
+          </div>
+          <div class="col-1">
+          <%= link_to 'Edit', edit_comment_path(comment),class:"show" %>
+          </div>
+          <div class="col-1">
+          <%= link_to 'Delete', comment, class:"show",method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+    </div>
+    <% end %>

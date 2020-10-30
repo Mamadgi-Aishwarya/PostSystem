@@ -4,19 +4,7 @@
   <strong>Title: </strong><%= @question.title %><br>
   <strong>By </strong><%= @question.user.name %><br>
   <h5>Comments</h5>
-  <% @question.comments.each do |comment|%>
-  <div class="row">
-        <div class="col">
-        <p><%= comment.message %>&nbsp;&nbsp;By: <%= comment.user.name %></p>
-        </div>
-        <div class="col-1">
-        <%= link_to 'Edit', edit_comment_path(comment),class:"show" %>
-        </div>
-        <div class="col-1">
-        <%= link_to 'Delete', comment, class:"show",method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-  </div>
-  <% end %>
+  <%= render partial: 'shared/comments' ,locals: {comments: @question.comments} %>
 <h5>Add comment here</h5>
 <%= form_with(scope: :comment,url:comments_path,class:"addNewCommentForm",method: :post,local:true) do |f| %>
   <%= f.text_field :message %>

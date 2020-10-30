@@ -4,6 +4,6 @@
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
-
+<%= render partial: 'shared/questions' ,locals: { questions: @user.questions } %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
