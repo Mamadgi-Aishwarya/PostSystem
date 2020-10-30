@@ -1,9 +1,10 @@
 <%= render partial: 'shared/flashMessages' %>
-
+<div class="container jumbotron">
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
 <%= render partial: 'shared/questions' ,locals: { questions: @user.questions } %>
+</div>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
