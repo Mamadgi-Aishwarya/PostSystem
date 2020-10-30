@@ -1,15 +1,8 @@
 <p id="notice"><%= notice %></p>
-<div>
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @question.description %>
-</p>
-</div>
-  <h4>Comments</h4>
+<div class="jumbotron"> 
+  <strong>Title: </strong><%= @question.title %><br>
+  <strong>By </strong><%= @question.user.name %><br>
+  <h5>Comments</h5>
   <% @question.comments.each do |comment|%>
   <div class="row">
         <div class="col">
@@ -30,5 +23,6 @@
   <%= f.submit "Add" %>
 <% end %>    <br>
 
-<%= link_to 'Edit the Question', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Edit the Question', edit_question_path(@question) ,class:"show" %> |
+<%= link_to 'Back', questions_path ,class:"show" %>
+</div>
