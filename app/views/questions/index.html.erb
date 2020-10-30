@@ -1,27 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Questions</h1>
-
-<table>
-  <tbody>
+<div class="float-right new-question"><%= link_to 'New Question', new_question_path %></div><br>
+<div class="container jumbotron">
     <% @questions.each do |question| %>
-    <tr  class="post">
-        <td><h3>Question</h3></td>
-        <tr><td><strong>Title: </strong><%= question.title %></td></tr>
-        <tr><td><strong>By </strong><%= question.user.name %></td></tr>
-        <tr><td><%= question.description %></td></tr>
-        <td><%= link_to 'Show', question %></td>
-      </tr>
-      <tr>
-      <tr><td><h4>Comments</h4></td></tr>
+      <div class="post">
+       <h3>Question</h3>
+       <strong>Title: </strong><%= question.title %><br>
+       <strong>By </strong><%= question.user.name %><br>
+       <%= question.description %><br><br>
+       <%= link_to 'Click To Read Full Question ', question ,class:"show" %>
+      </div><br><br>
+      <p>Comments</p>
       <% question.comments.each do |comment|%>
-        <tr><td><%= comment.message %>&nbsp;&nbsp;By: <%= comment.user.name %></td></tr>
-      <% end %> 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div class="row comments">
+              <div class="col">
+              <p><%= comment.message %>&nbsp;&nbsp;By: <%= comment.user.name %></p>
+              </div>
+        </div>
+      <% end %>
+      <% end %>
+</div>
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>

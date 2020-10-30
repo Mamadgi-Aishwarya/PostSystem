@@ -1,6 +1,18 @@
 // Place all the styles related to the Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-    .post{
-        background-color: aqua;
+
+  
+    .comments{
+        background-color:#fed8b1;
+    }
+    .new-question{
+        background-color:orange;
+        border:3px solid black;
+        border-radius: 5%;
+    }
+    .show{
+        background-color:#fed8b1;
+        border:3px solid black;
+        border-radius: 5%;  
     }
