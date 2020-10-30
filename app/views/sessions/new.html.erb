@@ -1,9 +1,10 @@
 <%= render partial: './shared/flashMessages' %>
+<div class="container jumbotron">
 <%= form_with(scope: :session,url:login_path,local:true) do |f| %>
     <%= f.label :email %>
     <%= f.email_field :email %>
     <%= f.label :password %>
     <%= f.password_field :password %>
-    <%= f.submit "Log In" %>
+    <%= f.submit "Log In" ,class:"new-question" %>
 <% end %>
-
+</div>
