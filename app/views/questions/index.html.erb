@@ -1,6 +1,5 @@
 <%= render partial: 'shared/flashMessages' %>
 <h1>Questions</h1>
-<div class="float-right new-question"><%= link_to 'New Question', new_question_path %></div><br>
 <div class="container jumbotron">
     <% @questions.each do |question| %>
       <div class="post">
